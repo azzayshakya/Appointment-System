@@ -1,41 +1,38 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const bcrypt = require('bcryptjs');
 
-// Signup Route
 router.post('/CreateUser', async (req, res) => {
-  console.log("Request Body:", req.body);
-  const { name, email, number, UserType, selectedInstitute } = req.body;
+  
+  const { name, email, number, UserType, selectedInstitute, password } = req.body;
 
-  // Validate the required fields
-  if (!name || !email || !number || !UserType || (UserType === 'Institute' && !selectedInstitute)) {
+  
+  if (!name || !email || !number || !UserType || (UserType === 'Institute' && !selectedInstitute) || !password) {
     return res.status(400).json({ message: 'Please fill out all required fields.' });
   }
 
   try {
-    // Check if the email already exists
+    
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: 'Email already in use.' });
+      return res.status(400).json({ success:false,message: 'Email already in use.' });
     }
+    const hashedPassword = await bcrypt.hash(password, 10);
+const user = new User({
+  name,
+  email,
+  password: hashedPassword,
+  number,
+  UserType,
+  selectedInstitute: UserType === 'Institute' ? selectedInstitute : undefined
+});
+await user.save();
 
-    // Create a new user
-    const user = new User({
-      name,
-      email,
-      number,
-      UserType,
-      selectedInstitute: UserType === 'Institute' ? selectedInstitute : undefined
-    });
-
-    // Save the user to the database
-    await user.save();
-
-    // Send a success response
-    res.status(201).json({ message: 'User registered successfully.' });
+    res.status(201).json({success:true, message: 'User registered successfully.' });
   } catch (error) {
     console.error('Error registering user:', error.message); // Log the specific error message
-    res.status(500).json({ message: 'Server error. Please try again later.' });
+    res.status(500).json({success:false, message: 'Server error. Please try again later.' });
   }
 });
 

@@ -26,7 +26,11 @@ const userSchema = new Schema({
   },
   selectedInstitute: {
     type: String,
-    required: function() { return this.userType === 'Institute'; }
+    required: function() { return this.UserType === 'Institute'; }
+  },
+  password: {
+    type: String,
+    required: true
   }
 }, {
   timestamps: true

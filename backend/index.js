@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
 app.use('/api/', require('./Routes/CreateUser'));
 app.use('/api/', require('./Routes/Institutes'));
 app.use('/api/', require('./Routes/Login'));
+app.use('/api/', require('./Routes/AppointmentRoute'));
+app.use('/api/', require('./Routes/YourAccount'));
+
+
 app.listen(port, () => {
   console.log(`Your app listening on port ${port}`);
 });
