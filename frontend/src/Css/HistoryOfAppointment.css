@@ -1,0 +1,114 @@
+
+
+
+.title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.appointments-container {
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.appointment-box {
+   
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.appointment-box:hover {
+    transform: scale(1.05);
+}
+
+.appointment-info {
+    margin-bottom: 15px;
+    /* text-align: center; */
+}
+
+.appointment-info div {
+    margin-bottom: 5px;
+    margin:15px ;
+    font-weight: bold;
+    
+}
+
+
+.appointment-info span{
+    color: #666;
+    font-weight: lighter;
+    
+}
+.delete-button{
+    background-color:red;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.confirm-button,
+.cancel-button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.confirm-button {
+    background-color: #f44336; 
+    color: white;
+    border: none;
+}
+
+.cancel-button {
+    background-color: #4caf50; 
+    color: white;
+    border: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .appointment-box {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .appointment-box {
+        flex: 1 1 100%;
+    }
+}

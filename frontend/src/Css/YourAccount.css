@@ -1,0 +1,94 @@
+.your-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.account-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.account-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-form div {
+    margin-bottom: 15px;
+}
+
+.account-form label {
+    font-weight: bold;
+    display: block;
+}
+
+.account-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.delete-btn:hover {
+    background-color: #c62828;
+}
+
+.confirm-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.confirm-popup button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.confirm-popup button:hover {
+    background-color: #f44336;
+
+}
+
+.confirm-popup button.cancel {
+    background-color: #f44336;
+}
+
+.confirm-popup button.cancel:hover {
+    background-color: #388E3C;
+}
+
+.confirm-popup .deletebutton{
+    background-color: red;
+}
